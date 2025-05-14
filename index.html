@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="Interactive HTML5 page for JavaScript event handling assignment.">
+    <meta name="keywords" content="HTML5, JavaScript, events, interactive, forms, validation">
+    <meta name="author" content="Abu Musa ">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="style.css">
+    <title>Interactive Task Playground</title>
+    <style>
+        table, tr, th, td {
+            border: 1px solid #333;
+            border-collapse: collapse;
+            text-align: center;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .tab-container {
+            display: flex;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .tab-button {
+            padding: 10px 15px;
+            cursor: pointer;
+            border: none;
+            background-color: #eee;
+            margin-right: 5px;
+        }
+        .tab-button.active {
+            background-color: #ddd;
+        }
+        .slide-container {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+            margin: 10px auto;
+            border: 1px solid #ccc;
+        }
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            object-fit: cover;
+        }
+        .slide.active {
+            display: block;
+        }
+        .slide-controls {
+            text-align: center;
+            margin-top: 5px;
+        }
+        .slide-controls button {
+            padding: 5px 10px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .secret-trigger {
+            cursor: pointer;
+            font-weight: bold;
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p style="background-color: #e0f7fa; font-size: 1.2em; color: #00acc1; text-align: center; padding: 10px;">JAVASCRIPT INTERACTIVITY ASSIGNMENT</p>
+        <nav class="tab-container">
+            <button class="tab-button active" data-section-id="home">Home</button>
+            <button class="tab-button" data-section-id="images">Images</button>
+            <button class="tab-button" data-section-id="lists">Lists</button>
+            <button class="tab-button" data-section-id="tables">Tables</button>
+            <button class="tab-button" data-section-id="forms">Forms</button>
+            <button id="changeTextButton">Change Header Text</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h2>Welcome to the Interactive Playground!</h2>
+            <p>Explore the different interactive elements and form below.</p>
+            <p>Try hovering over the navigation links, pressing keys, and even <span class="secret-trigger">double-clicking this text</span> for a surprise!</p>
+        </section>
+
+        <section id="images" style="display: none;">
+            <h2>Implementing HTML5 Images</h2>
+            <div class="slide-container">
+                <img src="amr.jpg" alt="Image 1" class="slide active">
+                <img src="amr2.jpg" alt="Image 2" class="slide">
+                <img src="amr3.jpg" alt="Image 3" class="slide">
+            </div>
+            <div class="slide-controls">
+                <button id="prevSlide">Previous</button>
+                <button id="nextSlide">Next</button>
+            </div>
+            <figure>
+                <img src="pexel.jpg" alt="A placeholder image" width="200" height="200">
+                <figcaption>A small placeholder image</figcaption>
+            </figure>
+        </section>
+
+        <section id="lists" style="display: none;">
+            <h2>Implementing HTML5 Lists</h2>
+            <p>Here are some programming languages:</p>
+            <ol style="list-style-type: decimal;">
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>Java</li>
+                <li>C++</li>
+            </ol>
+            <p>And some web development skills:</p>
+            <ul style="list-style-type: disc;">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Responsive Design</li>
+            </ul>
+        </section>
+
+        <section id="tables" style="display: none;">
+            <h2>Implementing HTML5 Tables</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>City</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Alice</td>
+                        <td>25</td>
+                        <td>New York</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Bob</td>
+                        <td>32</td>
+                        <td>London</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Charlie</td>
+                        <td>28</td>
+                        <td>Paris</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="forms" style="display: none;">
+            <h2>Implementing HTML5 Forms and Input Types</h2>
+            <form id="registrationForm" action="#" method="post">
+                <fieldset>
+                    <legend>REGISTRATION FORM</legend>
+                    <p>
+                        <label for="fname">FULLNAME:</label>
+                        <input type="text" id="fname" name="fullname" placeholder="Enter your full name" autocomplete="on" required autofocus>
+                        <span class="error-message" id="fnameError"></span>
+                    </p>
+                    <p>
+                        <label for="email">EMAIL:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" autocomplete="on" required>
+                        <span class="error-message" id="emailError"></span>
+                    </p>
+                    <p>
+                        <label for="password">PASSWORD:</label>
+                        <input type="password" id="password" name="password" placeholder="Enter password (min 8 chars)" minlength="8" required>
+                        <span class="error-message" id="passwordError"></span>
+                    </p>
+                    <p>
+                        <label for="date">DATE OF BIRTH:</label>
+                        <input type="date" id="date" name="date" required>
+                    </p>
+                    <p>
+                        <label for="gender">GENDER:</label>
+                        <input type="radio" id="male" name="gender" value="male" required> Male
+                        <input type="radio" id="female" name="gender" value="female" required> Female
+                    </p>
+                    <p>
+                        <label for="country">COUNTRY:</label>
+                        <select id="country" name="country" required>
+                            <option value="">Select your country</option>
+                            <option value="usa">United States</option>
+                            <option value="canada">Canada</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="australia">Australia</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="terms">AGREE TO TERMS:</label>
+                        <input type="checkbox" id="terms" name="terms" required> I agree to the terms and conditions
+                    </p>
+                    <p>
+                        <button type="submit" value="SIGNUP" name="submit" id="submitBtn">Submit</button>
+                        <span id="formMessage" style="display: none;"></span>
+                    </p>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+
+    <footer style="background-color: #e0f7fa; font-size: 0.9em; color: #00acc1; text-align: center; padding: 10px; margin-top: 20px;">
+        <p>&copy; AMR TECHNOLOGIES</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
